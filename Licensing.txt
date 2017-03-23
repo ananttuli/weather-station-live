@@ -1,0 +1,10 @@
+LICENSING information for Weather Station PC Software
+
+Only one external library was used to incorporate Serial communication into the software.
+
+1. jSerialComm library - Platform-independent serial port access for Java
+   Link to Library on GitHub - https://github.com/Fazecast/jSerialComm
+   License Type - GNU LESSER GENERAL PUBLIC LICENSE
+   
+   Complete Licensing terms and documentation - https://github.com/Fazecast/jSerialComm/blob/master/LICENSE
+   

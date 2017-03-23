@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity"
+	minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0"
+	prefWidth="1400.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8.0.60"
+	xmlns:fx="http://javafx.com/fxml/1" fx:controller="weather_station.FXMLDocumentController">
+	<children>
+		<MenuBar layoutY="2.0" prefHeight="32.0" prefWidth="1400.0"
+			stylesheets="@main.css">
+			<menus>
+				<Menu mnemonicParsing="false" text="File">
+					<items>
+						<MenuItem fx:id="liveMenuItem" mnemonicParsing="false"
+							onAction="#liveMenuItemAction" text="Live" />
+						<MenuItem fx:id="saveMenuItem" mnemonicParsing="false"
+							onAction="#saveMenuItemAction" onMenuValidation="#saveMenuItemAction"
+							text="Save" />
+						<MenuItem mnemonicParsing="false" onAction="#loadMenuItemAction"
+							onMenuValidation="#loadMenuItemAction" text="Load" />
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="View">
+					<items>
+						<MenuItem fx:id="digitalMenuItem" mnemonicParsing="false"
+							onAction="#digitalMenuItemAction" onMenuValidation="#digitalMenuItemAction"
+							text="Digital" />
+						<MenuItem fx:id="analogMenuItem" mnemonicParsing="false"
+							onAction="#analogMenuItemAction" text="Analog" />
+						<MenuItem fx:id="stripChartMenuItem" mnemonicParsing="false"
+							onAction="#stripChartMenuItemAction" text="Strip Chart" />
+
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Help">
+					<items>
+						<MenuItem mnemonicParsing="false"
+							onAction="#helpMenuItemAction" text="Guide" />
+					</items>
+				</Menu>
+			</menus>
+		</MenuBar>
+		<Pane layoutX="1.0" layoutY="62.0" prefHeight="800.0" prefWidth="1280.0"
+			stylesheets="@main.css">
+			<children>
+				<BarChart fx:id="lightBarChart" animated="false" layoutX="958.0"
+					layoutY="66.0" prefHeight="737.0" prefWidth="342.0" scaleShape="false"
+					stylesheets="@barchartLight.css" title="Light Insolation (Lux)">
+					<xAxis>
+						<CategoryAxis fx:id="lightXAxis" side="BOTTOM" />
+					</xAxis>
+					<yAxis>
+						<NumberAxis fx:id="lightYAxis" side="LEFT" />
+					</yAxis>
+					<cursor>
+						<Cursor fx:constant="CROSSHAIR" />
+					</cursor>
+				</BarChart>
+				<Button fx:id="load_5x" layoutX="132.0" layoutY="-14.0"
+					mnemonicParsing="false" onAction="#onClickLoad5x" prefHeight="28.0"
+					prefWidth="63.0" text="5x">
+					<cursor>
+						<Cursor fx:constant="HAND" />
+					</cursor>
+				</Button>
+				<Button fx:id="load_10x" layoutX="210.0" layoutY="-14.0"
+					mnemonicParsing="false" onAction="#onClickLoad10x" prefHeight="28.0"
+					prefWidth="63.0" text="10x">
+					<cursor>
+						<Cursor fx:constant="HAND" />
+					</cursor>
+				</Button>
+				<Button fx:id="load_realtime" layoutX="8.0" layoutY="-14.0"
+					mnemonicParsing="false" onAction="#onClickLoadRealTime" prefHeight="28.0"
+					prefWidth="109.0" text="Real-time" wrapText="true">
+					<cursor>
+						<Cursor fx:constant="HAND" />
+					</cursor>
+				</Button>
+				<Label fx:id="weatherheading" alignment="CENTER"
+					contentDisplay="CENTER" layoutX="268.0" layoutY="112.0" prefHeight="141.0"
+					prefWidth="867.0" text="WeatherStation" textAlignment="CENTER">
+					<font>
+						<Font size="96.0" />
+					</font>
+				</Label>
+				<BarChart fx:id="windBarChart" animated="false" layoutX="570.0"
+					layoutY="66.0" prefHeight="737.0" prefWidth="342.0" scaleShape="false"
+					stylesheets="@barchartWind.css" title="Wind Speed (m/s)">
+					<xAxis>
+						<CategoryAxis side="BOTTOM" />
+					</xAxis>
+					<yAxis>
+						<NumberAxis side="LEFT" />
+					</yAxis>
+					<cursor>
+						<Cursor fx:constant="CROSSHAIR" />
+					</cursor>
+				</BarChart>
+				<BarChart fx:id="temperatureBarChart" animated="false"
+					layoutX="163.0" layoutY="66.0" prefHeight="737.0" prefWidth="342.0"
+					scaleShape="false" stylesheets="@barchartTemp.css" title="Temperature (C)">
+					<xAxis>
+						<CategoryAxis fx:id="tempXAxis" side="BOTTOM" />
+					</xAxis>
+					<yAxis>
+						<NumberAxis fx:id="tempYAxis" animated="false" side="LEFT">
+							<cursor>
+								<Cursor fx:constant="CROSSHAIR" />
+							</cursor>
+						</NumberAxis>
+					</yAxis>
+					<cursor>
+						<Cursor fx:constant="CROSSHAIR" />
+					</cursor>
+				</BarChart>
+				<Button fx:id="stop" layoutX="8.0" layoutY="29.0"
+					mnemonicParsing="false" onAction="#onClickStop" prefHeight="28.0"
+					prefWidth="63.0" text="Stop">
+					<cursor>
+						<Cursor fx:constant="HAND" />
+					</cursor>
+				</Button>
+				<LineChart fx:id="lineChart" animated="false" layoutX="16.0"
+					layoutY="97.0" prefHeight="725.0" prefWidth="1354.0" title="Strip Chart">
+					<xAxis>
+						<CategoryAxis side="BOTTOM" fx:id="xAxis" />
+					</xAxis>
+					<yAxis>
+						<NumberAxis fx:id="yAxis" side="LEFT" />
+					</yAxis>
+					<cursor>
+						<Cursor fx:constant="CROSSHAIR" />
+					</cursor>
+				</LineChart>
+				<Label fx:id="timestampValueLabel" layoutX="476.0" layoutY="-21.0" prefHeight="73.0"
+					prefWidth="581.0" textAlignment="CENTER">
+					<font>
+						<Font size="50.0" />
+					</font>
+				</Label>
+				<Label fx:id="windSpeedValueLabel" layoutX="68.0" layoutY="178.0" prefHeight="131.0"
+					prefWidth="400.0" text="0.00" textAlignment="CENTER">
+					<font>
+						<Font name="System Bold" size="90.0" />
+					</font>
+				</Label>
+				<Label fx:id="temp" alignment="CENTER" layoutX="916.0"
+					layoutY="178.0" prefHeight="131.0" prefWidth="595.0" text="0.00"
+					textAlignment="CENTER">
+					<font>
+						<Font name="System Bold" size="90.0" />
+					</font>
+				</Label>
+				<Label fx:id="lightValueLabel" alignment="CENTER" contentDisplay="CENTER"
+					layoutX="346.0" layoutY="178.0" prefHeight="131.0" prefWidth="636.0"
+					text="0.00">
+					<font>
+						<Font name="System Bold" size="90.0" />
+					</font>
+				</Label>
+
+				<TableView fx:id="digitalTableView" layoutX="64.0"
+					layoutY="474.0" prefHeight="338.0" prefWidth="1238.0" visible="false">
+					<columns>
+						<TableColumn fx:id="timeStamp" maxWidth="336.0"
+							minWidth="336.0" prefWidth="336.0" text="Timestamp">
+							<cellValueFactory>
+								<PropertyValueFactory property="timeStamp" />
+							</cellValueFactory>
+
+						</TableColumn>
+
+						<TableColumn fx:id="windSpeed" maxWidth="300.0"
+							minWidth="300.0" prefWidth="300.0" text="Wind Speed">
+							<cellValueFactory>
+								<PropertyValueFactory property="windSpeed" />
+							</cellValueFactory>
+						</TableColumn>
+						<TableColumn fx:id="temperature" maxWidth="300.0"
+							minWidth="300.0" prefWidth="300.0" text="Temperature">
+							<cellValueFactory>
+								<PropertyValueFactory property="temperature" />
+							</cellValueFactory>
+						</TableColumn>
+						<TableColumn fx:id="lightInsolation" maxWidth="300.0"
+							minWidth="300.0" prefWidth="300.0" text="Insolation">
+							<cellValueFactory>
+								<PropertyValueFactory property="lightInsolation" />
+							</cellValueFactory>
+						</TableColumn>
+					</columns>
+
+
+				</TableView>
+
+				<Label fx:id="windSpeedWordLabel" layoutX="81.0" layoutY="307.0"
+					prefHeight="45.0" prefWidth="166.0" text="WIND SPEED (m/s)"
+					wrapText="true">
+					<font>
+						<Font size="19.0" />
+					</font>
+				</Label>
+				<Label fx:id="lightWordLabel" layoutX="541.0" layoutY="307.0"
+					prefHeight="45.0" prefWidth="247.0" text="LIGHT INSOLATION(LUX)"
+					wrapText="true">
+					<font>
+						<Font size="20.0" />
+					</font>
+				</Label>
+				<Label fx:id="temperatureWordLabel" layoutX="1131.0" layoutY="307.0"
+					prefHeight="45.0" prefWidth="166.0" text="TEMPERATURE (C)"
+					textAlignment="CENTER" wrapText="true">
+					<font>
+						<Font size="19.0" />
+					</font>
+				</Label>
+			</children>
+		</Pane>
+	</children>
+</AnchorPane>

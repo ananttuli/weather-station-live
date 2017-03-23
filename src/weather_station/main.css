@@ -1,0 +1,119 @@
+/*
+ * This is the CSS file which modifies the style of various elements within the software
+ * Eg. Linechart, Button states etc.
+ * It modifies the default Java stylesheet (complements) Modena
+ */
+ 
+ .chart-content {
+    -fx-padding: 10px;
+}
+ .chart-title {
+    -fx-font-size: 2.4em;
+}
+ .chart-legend {
+   -fx-background-color:  #cccccc, #eeeeee;
+   -fx-background-insets: 0,1;
+   -fx-background-radius: 6,5;
+   -fx-padding: 6px;
+}
+.default-color0.chart-line-symbol { -fx-background-color: #22bad9, #22bad9; }
+.default-color1.chart-line-symbol { -fx-background-color: #c62b00, #c62b00; }
+.default-color2.chart-line-symbol { -fx-background-color: #f9d900, #f9d900; }
+
+.default-color0.chart-series-line { -fx-stroke: #22bad9; }
+.default-color1.chart-series-line { -fx-stroke: #c62b00; }
+.default-color2.chart-series-line { -fx-stroke: #f9d900; }
+
+.chart-line-symbol {
+    -fx-background-color: #22bad9, black;
+    -fx-background-insets: 0, 2;
+    -fx-background-radius: 20px;
+    -fx-padding: 3px;
+}
+.chart-series-line {
+    -fx-stroke: grey;
+    -fx-stroke-width: 8px;
+    -fx-effect: dropshadow( two-pass-box , rgba(0,0,0,0.3) , 8, 0.0 , 0 , 3 );
+}
+.button {
+    -fx-background-color: 
+        #c3c4c4,
+        linear-gradient(#d6d6d6 50%, white 100%),
+        radial-gradient(center 50% -40%, radius 200%, #e6e6e6 45%, rgba(230,230,230,0) 50%);
+    -fx-background-radius: 30;
+    -fx-background-insets: 0,1,1;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 , 0 , 1 );
+    -fx-padding: 5 10 5 10;
+    
+
+}
+
+.button:focused {
+-fx-background-color: 
+        #c3c4c4,
+        linear-gradient(silver 20%, grey 100%),
+        radial-gradient(center 50% -40%, radius 200%, #e6e6e6 45%, rgba(230,230,230,0) 50%);
+    -fx-background-radius: 30;
+    -fx-background-insets: 0,1,1;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 , 0 , 1 );
+    -fx-padding: 5 10 5 10;
+}
+
+.button:hover {
+
+        -fx-background-color: 
+        #c3c4c4,
+        linear-gradient(#9d9e9d 50%, grey 100%),
+        radial-gradient(center 50% -40%, radius 200%, #e6e6e6 45%, rgba(230,230,230,0) 50%);
+    -fx-background-radius: 30;
+    -fx-background-insets: 0,1,1;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 , 0 , 1 );
+    -fx-padding: 5 10 5 10;
+    
+}
+
+.button:armed {
+    -fx-color: -fx-pressed-base;
+            -fx-background-color: 
+        #c3c4c4,
+        linear-gradient(#9d9e9d 50%, grey 100%),
+        radial-gradient(center 50% -40%, radius 200%, #e6e6e6 45%, rgba(230,230,230,0) 50%);
+    -fx-background-radius: 30;
+    -fx-background-insets: 0,1,1;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 , 0 , 1 );
+    -fx-padding: 4 8 4 8;
+}
+ 
+.button:default {
+ 
+        -fx-background-color: 
+        #c3c4c4,
+        linear-gradient(#d6d6d6 50%, white 100%),
+        radial-gradient(center 50% -40%, radius 200%, #e6e6e6 45%, rgba(230,230,230,0) 50%);
+    -fx-background-radius: 30;
+    -fx-background-insets: 0,1,1;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 , 0 , 1 );
+    -fx-padding: 5 10 5 10;
+}
+
+.button:cancel {
+}
+
+.button:disabled {
+	    -fx-background-color: 
+        #c3c4c4,
+        linear-gradient(#d6d6d6 50%, white 100%),
+        radial-gradient(center 50% -40%, radius 200%, #e6e6e6 45%, rgba(230,230,230,0) 50%);
+    -fx-background-radius: 30;
+    -fx-background-insets: 0,1,1;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 , 0 , 1 );
+    -fx-padding: 5 10 5 10;
+    
+    -fx-opacity: 0.2;
+}
