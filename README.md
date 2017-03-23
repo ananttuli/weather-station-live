@@ -3,5 +3,5 @@ Weather station is a live weather data visualization and logging desktop GUI app
 
 ## Features
 Functions in conjunction with hardware sensors (2 PCBs) to process live weather data through serial communication via USB.
-*Serial communication with a PCB via USB
-*Display, graph, save and load live temperature, wind speed and light insolation.
+* Serial communication with a PCB via USB
+* Display, graph, save and load live temperature, wind speed and light insolation.
